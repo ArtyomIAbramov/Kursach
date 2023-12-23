@@ -285,6 +285,9 @@ namespace AutoSalon.ViewModel
                 orderClientEmployee.Client = Client.Id;
                 orderClientEmployee.Contract_code = (DateTime.Now.Ticks - new DateTime(2023, 9, 23).Ticks).ToString().Substring(0, 7);
 
+                if (_employeeService.GetEmployee(Employee.Id).TotalSold == null)
+                    _employeeService.GetEmployee(Employee.Id).TotalSold = "0";
+
                 _employeeService.GetEmployee(Employee.Id).TotalSold = (int.Parse(_employeeService.GetEmployee(Employee.Id).TotalSold) + Car.Cost).ToString();
                 _clientService.GetClient(Client.Id).CarsNames += Car.Model + ", ";
 
