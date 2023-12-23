@@ -1,4 +1,4 @@
-﻿using AutoSalon.Interface;
+﻿using AutoSalon.Models;
 using AutoSalon.Services;
 using AutoSalon.ViewModel;
 using System;
@@ -18,15 +18,15 @@ using System.Windows.Shapes;
 namespace AutoSalon.Views
 {
     /// <summary>
-    /// Interaction logic for UchetView.xaml
+    /// Interaction logic for AddNewClientView.xaml
     /// </summary>
-    public partial class UchetView : Window
+    public partial class AddNewClientView : Window
     {
-        public UchetView(ICarService carService, IEmployeeService employeeService, IClientService clientService, IOrderClientEmployeeService orderClientEmployeeService)
+        public AddNewClientView(OrderViewModel vm)
         {
             InitializeComponent();
 
-            DataContext = new UchetViewModel(carService, employeeService, clientService, orderClientEmployeeService);
+            DataContext = vm;
         }
     }
 }

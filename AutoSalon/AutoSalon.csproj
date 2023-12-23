@@ -92,6 +92,7 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\OrderClientEmployee.cs" />
+    <Compile Include="Models\OrderClientEmployeeEntity.cs" />
     <Compile Include="Models\OrderSupplierEmployee.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Services\CarService.cs" />
@@ -108,6 +109,9 @@
     <Compile Include="ViewModel\CarsViewModel.cs" />
     <Compile Include="ViewModel\OrderViewModel.cs" />
     <Compile Include="ViewModel\UchetViewModel.cs" />
+    <Compile Include="Views\AddNewClientView.xaml.cs">
+      <DependentUpon>AddNewClientView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CarsInStock.xaml.cs">
       <DependentUpon>CarsInStock.xaml</DependentUpon>
     </Compile>
@@ -151,6 +155,10 @@
     <Compile Include="Views\UchetView.xaml.cs">
       <DependentUpon>UchetView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AddNewClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CarsInStock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

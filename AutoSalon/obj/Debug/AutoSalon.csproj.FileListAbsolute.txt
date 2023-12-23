@@ -50,3 +50,9 @@ C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\AutoSalon.exe
 C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\AutoSalon.pdb
 C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\OrderSuccessView.g.cs
 C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\OrderSuccessView.baml
+C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\SelectSupplierView.g.cs
+C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\UchetView.g.cs
+C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\SelectSupplierView.baml
+C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\UchetView.baml
+C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\AddNewClientView.g.cs
+C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\obj\Debug\Views\AddNewClientView.baml

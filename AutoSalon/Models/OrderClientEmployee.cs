@@ -42,35 +42,35 @@ namespace AutoSalon.Models
             }
         }
 
-        private Car car;
-        public Car Car
+        private int car_id;
+        public int Car
         {
-            get { return car; }
+            get { return car_id; }
             set
             {
-                car = value;
+                car_id = value;
                 OnPropertyChanged("Car");
             }
         }
 
-        private Employee employee;
-        public Employee Employee
+        private int employee_id;
+        public int Employee
         {
-            get { return employee; }
+            get { return employee_id; }
             set
             {
-                employee = value;
+                employee_id = value;
                 OnPropertyChanged("Employee");
             }
         }
 
-        private Client client;
-        public Client Client
+        private int client_id;
+        public int Client
         {
-            get { return client; }
+            get { return client_id; }
             set
             {
-                client = value;
+                client_id = value;
                 OnPropertyChanged("Client");
             }
         }

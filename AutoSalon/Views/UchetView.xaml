@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoSalon.Views"
         mc:Ignorable="d"
-        Title="UchetView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="UchetView" Height="450" Width="1150">
+    
+    <Window.Resources>
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#1f0854"/>
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel>
+        <TextBlock HorizontalAlignment="Center" Style="{StaticResource TitleStyle}" Margin="0,20,0,20" TextWrapping="Wrap" Text='Учёт продаж' VerticalAlignment="Top"/>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Orders_client_Employee_Entity ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1100" Height="350">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding OrderClientEmployee.Order_date}" Header="Дата" Width="70"/>
+                <DataGridTextColumn Binding="{Binding OrderClientEmployee.Order_price}" Header="Стоимость" Width="100"/>
+                <DataGridTextColumn Binding="{Binding OrderClientEmployee.Contract_code}" Header="№ Контракта" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Car.BrandNew}" Header="Марка" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Car.Model}" Header="Модель" Width="90"/>
+                <DataGridTextColumn Binding="{Binding Car.Color}" Header="Цвет" Width="70"/>
+                <DataGridTextColumn Binding="{Binding Employee.Name}" Header="Прод. Имя" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Employee.Surname}" Header="Прод. Фамилия" Width="130"/>
+                <DataGridTextColumn Binding="{Binding Client.Name}" Header="Кл. Имя" Width="90"/>
+                <DataGridTextColumn Binding="{Binding Client.Surname}" Header="Кл. Фамилия" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Client.CarsNames}" Header="Купл. машины" Width="130"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
 </Window>

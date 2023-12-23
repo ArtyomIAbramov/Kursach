@@ -20,17 +20,7 @@ namespace AutoSalon.Services
 
         public void CreateOrder(OrderClientEmployee orderClientEmployee)
         {
-            OrderClientEmployee order = new OrderClientEmployee();
-
-            order.Id = orderClientEmployee.Id;
-            order.Order_date = orderClientEmployee.Order_date;
-            order.Order_price = orderClientEmployee.Order_price;
-            order.Car = orderClientEmployee.Car;
-            order.Client = orderClientEmployee.Client;
-            order.Employee = orderClientEmployee.Employee;
-            order.Contract_code = orderClientEmployee.Contract_code;
-
-            db.OrdersClientEmployee.Add(order);
+            db.OrdersClientEmployee.Add(orderClientEmployee);
             db.SaveChanges();
         }
 

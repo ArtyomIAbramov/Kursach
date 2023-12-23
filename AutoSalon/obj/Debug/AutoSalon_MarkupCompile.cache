@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Artyom\source\repos\AutoSalon\AutoSalon\App.xaml
-11-822336542
+14-373507508
 
-45712279746
+501418265677
 20653329997
-Views\CarsInStock.xaml;Views\ClientsView.xaml;Views\EmployeeView.xaml;Views\HomeView.xaml;Views\OrderClientEmployee\OrderFormView.xaml;Views\OrderSuccessView.xaml;Views\OrderSupplierFormView.xaml;Views\PriceList.xaml;Views\SelectCarView.xaml;Views\SelectClientView.xaml;Views\SelectEmployeeView.xaml;
+Views\AddNewClientView.xaml;Views\CarsInStock.xaml;Views\ClientsView.xaml;Views\EmployeeView.xaml;Views\HomeView.xaml;Views\OrderClientEmployee\OrderFormView.xaml;Views\OrderSuccessView.xaml;Views\OrderSupplierFormView.xaml;Views\PriceList.xaml;Views\SelectCarView.xaml;Views\SelectClientView.xaml;Views\SelectEmployeeView.xaml;Views\SelectSupplierView.xaml;Views\UchetView.xaml;
 
 False
 

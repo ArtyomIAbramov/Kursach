@@ -23,6 +23,8 @@ namespace AutoSalon.ViewModel
         public ClientsViewModel(IClientService clientService)
         {
             Client_list = clientService.GetAllClients();
+            _clientService  = clientService;
         }
+
     }
 }

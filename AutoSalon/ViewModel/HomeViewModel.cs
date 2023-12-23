@@ -145,7 +145,7 @@ namespace AutoSalon.ViewModel
         }
         public void UchetWindow()
         {
-            UchetView win = new UchetView(_orderClientEmployeeService);
+            UchetView win = new UchetView(_carService, _employeeService, _clientService, _orderClientEmployeeService);
             win.ShowDialog();
         }
         public void ClientsWindow()

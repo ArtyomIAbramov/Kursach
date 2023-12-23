@@ -1,0 +1,49 @@
+﻿<Window x:Class="AutoSalon.Views.AddNewClientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoSalon.Views"
+        mc:Ignorable="d"
+        Title="AddNewClientView" Height="320" Width="280">
+    <Grid>
+        <GroupBox Header="Клиент" VerticalAlignment="Top"  Margin="10" Height="229" Width="260">
+            <Grid Margin="0,10,0,0" Width="260">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="170"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Имя" HorizontalAlignment="Left" 
+                       VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" Width="80"/>
+                <TextBox Grid.Row="0" Grid.Column="1" 
+                       Text="{Binding Path=Entity.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="5,0,5,0"  Width="160" HorizontalAlignment="Left"/>
+                <Label Content="Фамилия" HorizontalAlignment="Left" 
+                       VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1" Width="80"/>
+                <TextBox Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding Path=Entity.Surname, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="5,0,5,0"  Width="160" HorizontalAlignment="Left"/>
+                <Label Content="Телефон" HorizontalAlignment="Left" VerticalContentAlignment="Center" 
+                       Grid.Row="2" Grid.Column="0" Width="80"/>
+                <TextBox Grid.Row="2" Grid.Column="1" 
+                       Text="{Binding Path=Entity.Phonenumber, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,0" Width="160" HorizontalAlignment="Left"/>
+                <Label Content="Адрес" HorizontalAlignment="Left" VerticalContentAlignment="Center" 
+                       Grid.Row="3" Grid.Column="0" Width="80" />
+                <TextBox Grid.Row="3" Grid.Column="1" 
+                       Text="{Binding Path=Entity.Address, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,0" Width="160" HorizontalAlignment="Left"/>
+                <Label Content="Паспорт" HorizontalAlignment="Left" VerticalContentAlignment="Center" 
+                       Grid.Row="4" Grid.Column="0" Width="80" />
+                <TextBox Grid.Row="4" Grid.Column="1" 
+                       Text="{Binding Path=Entity.Passport, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="5,0,5,0" Width="160" HorizontalAlignment="Left"/>
+            </Grid>
+        </GroupBox>
+        
+        <Button  Content="Добавить" Height="30" Width="123" VerticalAlignment="Bottom" Margin="0,0,0,10"
+                    Command="{Binding SaveNewClientCommand}" />
+    </Grid>
+</Window>

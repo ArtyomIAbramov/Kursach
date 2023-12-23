@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoSalon.Views"
         mc:Ignorable="d"
-        Title="EmployeeView"  Height="563.048" Width="1000">
+        Title="EmployeeView"  Height="563.048" Width="1100">
     <Window.Resources>
         
     </Window.Resources>
 
     <StackPanel Orientation="Vertical" Margin="0,0,0,0">
         <StackPanel Height="211">
-            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding  Employee_list}"  IsReadOnly="True"  SelectionUnit="FullRow" HorizontalAlignment="Center" Width="960" Height="191">
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding  Employee_list}"  IsReadOnly="True"  SelectionUnit="FullRow" HorizontalAlignment="Center" Width="1060" Height="210">
                 <DataGrid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="1"/>

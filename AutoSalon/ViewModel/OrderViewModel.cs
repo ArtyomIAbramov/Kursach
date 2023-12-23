@@ -34,7 +34,22 @@ namespace AutoSalon.ViewModel
         public List<Employee> Employees { get; set; }
         public List<Car> Cars { get; set; }
         public List<Supplier> Suppliers { get; set; }
+
+        public Client Entity { get; set; }
+
         public DateTime DateTime { get; set; }
+
+        private ICommand addNewClientCommand;
+        public ICommand AddClientCommand
+        {
+            get
+            {
+                if (addNewClientCommand == null)
+                    addNewClientCommand = new RelCommand(param => AddClient(), null);
+
+                return addNewClientCommand;
+            }
+        }
 
 
         private ICommand select_client;
@@ -71,6 +86,18 @@ namespace AutoSalon.ViewModel
                     select_car = new RelCommand(param => SelectCar(), null);
 
                 return select_car;
+            }
+        }
+
+        private ICommand saveNewClientCommand;
+        public ICommand SaveNewClientCommand
+        {
+            get
+            {
+                if (saveNewClientCommand == null)
+                    saveNewClientCommand = new RelCommand(param => Save(), null);
+
+                return saveNewClientCommand;
             }
         }
 
@@ -161,12 +188,13 @@ namespace AutoSalon.ViewModel
             Client = new Client() { Id = -1};
             Employee = new Employee() { Id = -1 };
             Car = new Car() { Id = -1 };
+            Entity = new Client();
 
             DateTime = DateTime.Now;
 
             Clients = _clientService.GetAllClients();
             Employees = _employeeService.GetAllEmployees();
-            Cars = _carService.GetAllCars();
+            Cars = _carService.GetAllCars().Where(x => x.Position == Position.InShop)?.ToList();
         }
 
         public void SelectClient()
@@ -252,10 +280,13 @@ namespace AutoSalon.ViewModel
                 OrderClientEmployee orderClientEmployee = new OrderClientEmployee();
                 orderClientEmployee.Order_date = DateTime;
                 orderClientEmployee.Order_price = Car.Cost;
-                orderClientEmployee.Car = Car;
-                orderClientEmployee.Employee = Employee;
-                orderClientEmployee.Client = Client;
+                orderClientEmployee.Car = Car.Id;
+                orderClientEmployee.Employee = Employee.Id;
+                orderClientEmployee.Client = Client.Id;
                 orderClientEmployee.Contract_code = (DateTime.Now.Ticks - new DateTime(2023, 9, 23).Ticks).ToString().Substring(0, 7);
+
+                _employeeService.GetEmployee(Employee.Id).TotalSold = (int.Parse(_employeeService.GetEmployee(Employee.Id).TotalSold) + Car.Cost).ToString();
+                _clientService.GetClient(Client.Id).CarsNames += Car.Model + ", ";
 
                 _orderClientEmployeeService.CreateOrder(orderClientEmployee);
 
@@ -263,6 +294,53 @@ namespace AutoSalon.ViewModel
 
                 win.ShowDialog();
             }
+        }
+
+        private void AddClient()
+        {
+            AddNewClientView win = new AddNewClientView(this);
+
+            win.ShowDialog();
+        }
+
+        public void Save()
+        {
+            if (Entity != null)
+            {
+                try
+                {
+                    if (Entity.Id <= 0)
+                    {
+                        _clientService.CreateClient(Entity);
+                        MessageBox.Show("Запись успешно добавлено в бд");
+                        Clients = _clientService.GetAllClients();
+                    }
+                    else
+                    {
+                        _clientService.UpdateClient(Entity);
+                        MessageBox.Show("Запись успешно обновлена");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Возникли ошибки при запросе в бд");
+                }
+                finally
+                {
+                    Reset();
+                }
+            }
+        }
+
+        public void Reset()
+        {
+            Entity.Id = 0;
+            Entity.Name = "";
+            Entity.Surname = "";
+            Entity.Phonenumber = "";
+            Entity.Address = "";
+            Entity.Passport = "";
+            Entity.Cars = null;
         }
     }
 }

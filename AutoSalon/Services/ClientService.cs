@@ -38,6 +38,7 @@ namespace AutoSalon.Services
             client.Address = p.Address;
             client.Passport = p.Passport;
             client.Cars = p.Cars;
+            client.CarsNames = p.CarsNames;
 
             db.Clients.Add(client);
             db.SaveChanges();
@@ -57,6 +58,7 @@ namespace AutoSalon.Services
                 client.Address = p.Address;
                 client.Passport = p.Passport;
                 client.Cars = p.Cars;
+                client.CarsNames = p.CarsNames;
 
                 db.SaveChanges();
             }

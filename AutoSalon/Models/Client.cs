@@ -86,5 +86,16 @@ namespace AutoSalon.Models
                 OnPropertyChanged("Cars");
             }
         }
+
+        private string carsNames;
+        public string CarsNames
+        {
+            get { return carsNames; }
+            set
+            {
+                carsNames = value;
+                OnPropertyChanged("CarsNames");
+            }
+        }
     }
 }

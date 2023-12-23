@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoSalon.Views"
         mc:Ignorable="d"
-        Title="SelectClientView" Height="500" Width="750">
+        Title="SelectClientView" Height="600" Width="750">
     <Grid>
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Clients, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" VerticalAlignment="Top" HorizontalAlignment="Center" Width="700" Height="450">
             <DataGrid.Columns>
@@ -26,5 +26,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button  Content="Добавить" Height="30" Width="123"
+                 VerticalAlignment="Bottom" Margin="0,0,0,20"
+                    Command="{Binding AddClientCommand}" />
     </Grid>
 </Window>
