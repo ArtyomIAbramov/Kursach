@@ -1,0 +1,83 @@
+﻿<Window x:Class="AutoSalon.Views.HomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoSalon.Views"
+        mc:Ignorable="d"
+            Title="AutoSalon" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="\Resources\homeMainImage.png"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="BeautifulButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#9c82d9"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#6231d4"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2980b9"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#2c3e50"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#1f0854"/>
+            <!-- Синий цвет -->
+            <Setter Property="Margin" Value="0,10,0,20"/>
+        </Style>
+
+        <LinearGradientBrush x:Key="TitleGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#bf191c" Offset="1.1"/>
+            <GradientStop Color="#740982" Offset="0.0"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="TitleStyle2" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,20,0,10"/>
+            <Setter Property="Foreground" Value="{StaticResource TitleGradient}"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="113*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Сотрудники" Command="{Binding EmployeesCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Left" Height="44" Margin="19,76,0,0" VerticalAlignment="Top" Width="185"/>
+        <Button Content="Магазин" Command="{Binding PriceListCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Left" Height="44" Margin="19,275,0,0" VerticalAlignment="Top" Width="185"/>
+        <Button Content="Склад" Command="{Binding StoreCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Right" Height="44" Margin="0,275,30,0" VerticalAlignment="Top" Width="185" Grid.Column="1"/>
+        <Button Content="Новая продажа" Command="{Binding NewBuyCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Right" Height="44" Margin="0,76,30,0" VerticalAlignment="Top" Width="185" Grid.Column="1"/>
+        <Button Content="Новая закупка" Command="{Binding NewSellCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Right" Height="44" Margin="0,179,30,0" VerticalAlignment="Top" Width="185" Grid.Column="1"/>
+        <Button Content="Учёт продаж \ покупок" Command="{Binding UchetCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Left" Height="44" Margin="67,76,0,0" VerticalAlignment="Top" Width="196" Grid.Column="1"/>
+        <Button Content="Клиенты" Command="{Binding ClientsCommand}" Style="{StaticResource BeautifulButtonStyle}" HorizontalAlignment="Left" Height="44" Margin="19,179,0,0" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.497,0.587"/>
+        <TextBlock HorizontalAlignment="Left" Style="{StaticResource TitleStyle}" Margin="5,10,0,0" TextWrapping="Wrap" Text='Автосалон "Любитель" ' VerticalAlignment="Top" Width="320" Grid.Column="1"/>
+        <TextBlock Style="{StaticResource TitleStyle2}" HorizontalAlignment="Left" Margin="127,363,0,0" TextWrapping="Wrap" Text='"Любительский Подбор. Профессиональные Автомобили."' VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

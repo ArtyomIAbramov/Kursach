@@ -1,0 +1,31 @@
+﻿<Window x:Class="AutoSalon.Views.SelectCarView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoSalon.Views"
+        mc:Ignorable="d"
+        Title="SelectCarView" Height="450" Width="800">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Cars, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" VerticalAlignment="Top" HorizontalAlignment="Center" Width="780" Height="450">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="" Width="0"/>
+                <DataGridTextColumn Binding="{Binding BrandNew}" Header="Марка" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Model}" Header="Модель" Width="90"/>
+                <DataGridTextColumn Binding="{Binding Color}" Header="Цвет" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Cost}" Header="Стоимость" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Max_speed}" Header="Макс. скорость" Width="130"/>
+                <DataGridTextColumn Binding="{Binding Power}" Header="Мощность" Width="100"/>
+                <DataGridTemplateColumn Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Выбрать" CommandParameter="{Binding Path=Id}"
+                                        Command="{Binding Path=DataContext.ChooseCarCommand,RelativeSource={RelativeSource FindAncestor,
+                                                AncestorType=Window}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
